@@ -9,6 +9,7 @@ function App() {
   const [settingsVisible, setSettingsVisible] = useState(false);
   const [workMinutes, setWorkMinutes] = useState(25);
   const [breakMinutes, setBreakMinutes] = useState(5);
+  const [mode, setMode] = useState('focus')
 
   return (
     <main className='pt-11 max-w-96 mx-auto text-center flex flex-col items-center justify-center'>
@@ -19,6 +20,8 @@ function App() {
         setWorkMinutes,
         breakMinutes,
         setBreakMinutes,
+        mode,
+        setMode
       }}>
         <p className='text-5xl py-8'>Pomodoro Timer</p>
         {settingsVisible && (
