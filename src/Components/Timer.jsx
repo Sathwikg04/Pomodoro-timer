@@ -4,6 +4,7 @@ import 'react-circular-progressbar/dist/styles.css';
 import Playbutton from './Playbutton';
 import PauseButton from './PauseButton';
 import SettingsContext from '../SettingsContext';
+import sound from '../assets/audio.mp3';
 
 const red = '#f54e4e';
 const green = '#4aec8c';
@@ -30,6 +31,13 @@ const Timer = () => {
     isPausedRef.current = true
   }
 
+  
+  function playSound() {
+    let audio = new Audio(sound);
+    audio.play()
+  }
+  
+
   useEffect(() => {
     function switchMode() {
       const nextMode = SettingsInfo.mode === 'focus' ? 'break' : 'focus'
@@ -40,6 +48,8 @@ const Timer = () => {
 
       setIsPaused(true)
       isPausedRef.current = true
+
+      playSound()
     }
 
     function tick() {
